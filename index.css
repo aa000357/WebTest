@@ -1,0 +1,19 @@
+
+
+	.tableStyle{
+		
+		text-decoration : none;
+	}
+
+	.title {
+		text-decoration : none;
+		border: pink solid;
+		padding:10px;
+		background-color : #FFFAF2;
+	}
+	
+	
+	.content{
+		padding:20px;
+		color:#BD63FF;
+	}

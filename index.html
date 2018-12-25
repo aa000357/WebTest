@@ -5,6 +5,7 @@
     <head >
 
         <meta charset="UTF-8">
+		<title>Wendy's Home</title>
 		<link rel="stylesheet" href="index.css">
 		<script src="/WebTest/js/jquery.js"></script>
 		<script src="/WebTest/js/bootstrap.min.js"></script>
@@ -12,15 +13,21 @@
 		<script type="text/javascript">
 			var path = window.location.pathname;
 　			//alert('location.pathname: '+location.pathname);　//目前造訪網頁路徑
+		
+		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<link rel="stylesheet" href="/resources/demos/style.css" />
+		<script>
+		$(function() {
+		$( "#dialog" ).dialog();
+		});
 		</script>
 		
-		<title>Wendy's Home</title>
+		
     </head>
 
-   <body background="path/../pic/index.png">
-   
-   
-   
+   <body background="path/../pic/index.png" >
+   <!--
 	<button onclick="myFunction()">Try it</button>
 
 	<p id="demo" ></p>
@@ -37,6 +44,10 @@
 	document.getElementById("demo").innerHTML = txt;
 	}
 		</script>
+   -->
+   
+
+   
    
 	<center>
 			<h1><a href="path/../index.html" target="_blank" style="text-decoration:none;">Hi!! Welcome to Wendy's Home</a>	</h1>
@@ -108,16 +119,16 @@
 	   </table>
 
     </body>
-
+	
 	<script>
 		$(function () { 
 		$.ajax({
                 url: "http://www.sabalapeople.nctu.me:38080/SabalaApi/wendyApi/test",   //存取Json的網址             
                 type: "GET",
                 cache:false,
-                dataType: 'json',
+                //dataType: 'json',
                 data:{},
-                contentType: "application/json",
+                //contentType: "application/json",
                 success: function (data) {
 					alert(data);
                 },
@@ -128,5 +139,5 @@
             });
 	 });
 	</script>
-
+  
 </html>

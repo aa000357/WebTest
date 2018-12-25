@@ -6,21 +6,40 @@
 
         <meta charset="UTF-8">
 		<link rel="stylesheet" href="index.css">
+		<script src="/WebTest/js/jquery.js"></script>
 		<script src="/WebTest/js/bootstrap.min.js"></script>
 		
 		<script type="text/javascript">
 			var path = window.location.pathname;
-　			alert('location.pathname: '+location.pathname);　//目前造訪網頁路徑
+　			//alert('location.pathname: '+location.pathname);　//目前造訪網頁路徑
 		</script>
 		
+		<title>Wendy's Home</title>
     </head>
 
-    <body background="path/../pic/index.png">
+   <body background="path/../pic/index.png">
+   
+   
+   
+	<button onclick="myFunction()">Try it</button>
+
+	<p id="demo" ></p>
+
+		<script>
+	function myFunction() {
+	var txt;
+	var person = prompt("Please enter your name:", "your name is");
+	if (person == null || person == "") {
+		txt = "User cancelled the prompt.";
+	} else {
+		txt = "Hello " + person + "! Welcome to Wendy's Home!!";
+	}
+	document.getElementById("demo").innerHTML = txt;
+	}
+		</script>
+   
 	<center>
-			<h1>
-			<a href="path/../index.html" target="_blank" style="text-decoration:none;">Hi!! Welcome to Wendy's Home</a>
-		
-			</h1>
+			<h1><a href="path/../index.html" target="_blank" style="text-decoration:none;">Hi!! Welcome to Wendy's Home</a>	</h1>
 		</center>
 		<!--功能選項-->
 	   <br>Wendy's Home</br>
@@ -38,16 +57,25 @@
 				</td>
 				
 			<td>
-			<a href="path/../travel.html" target="_blank" class="title">旅遊情報</a>
+			<a href="path/../travel.html" target="_blank" class="title" id="ss">旅遊情報</a>
 				</td>
 	　	</tr>
 		</table>
 	   <!--/center-->
-	
-	<br>
-	<strong class="content">部落格介紹</strong>
 	   <br>
-	   
+	<hr>
+	
+	<h2><strong class="content">部落格介紹</strong></h2>
+	<ul>
+	<h3><li>心情小語</li></h3>
+	<p> 版媽的心情日記/生活趣事</p>
+	<h3><li>親子好康</li></h3>
+	<p> 推薦親子活動</p>
+	<h3><li>旅遊情報</li></h3>
+	<p> 適合全家大小去的旅遊景點</p>
+	</ul>
+	
+	   <br>
 	   
 	   
 	   <table>
@@ -81,6 +109,24 @@
 
     </body>
 
-
+	<script>
+		$(function () { 
+		$.ajax({
+                url: "http://www.sabalapeople.nctu.me:38080/SabalaApi/wendyApi/test",   //存取Json的網址             
+                type: "GET",
+                cache:false,
+                dataType: 'json',
+                data:{},
+                contentType: "application/json",
+                success: function (data) {
+					alert(data);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                    alert(thrownError);
+                }
+            });
+	 });
+	</script>
 
 </html>

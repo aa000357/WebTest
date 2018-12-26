@@ -1,10 +1,30 @@
 
 
-	.tableStyle{
-		
-		text-decoration : none;
+	body{
+		background-image:url('path/../pic/index.png');		
 	}
 
+	.tableStyle{
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		background-color: #FFCC22;
+	}
+
+	.tableLi {
+		float: left;
+	}
+
+	.tableLiA {
+		display: block;
+		color: black;
+		text-align: center;
+		padding: 16px;
+		text-decoration: none;
+	}
+
+	
 	.title {
 		text-decoration : none;
 		border: pink solid;
@@ -17,5 +37,9 @@
 		padding:20px;
 		color:#BD63FF;
 	}
+	
+	
+	
+	
 	
 	

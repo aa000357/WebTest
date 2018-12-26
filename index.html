@@ -7,6 +7,7 @@
         <meta charset="UTF-8">
 		<title>Wendy's Home</title>
 		<link rel="stylesheet" href="index.css">
+		
 		<script src="/WebTest/js/jquery.js"></script>
 		<script src="/WebTest/js/bootstrap.min.js"></script>
 		
@@ -26,54 +27,32 @@
 		
     </head>
 
-   <body background="path/../pic/index.png" >
-   <!--
-	<button onclick="myFunction()">Try it</button>
-
-	<p id="demo" ></p>
-
-		<script>
-	function myFunction() {
-	var txt;
-	var person = prompt("Please enter your name:", "your name is");
-	if (person == null || person == "") {
-		txt = "User cancelled the prompt.";
-	} else {
-		txt = "Hello " + person + "! Welcome to Wendy's Home!!";
-	}
-	document.getElementById("demo").innerHTML = txt;
-	}
-		</script>
-   -->
+   <body  onload="enterNameFunction()" >
    
 
-   
-   
+	
+
 	<center>
-			<h1><a href="path/../index.html" target="_blank" style="text-decoration:none;">Hi!! Welcome to Wendy's Home</a>	</h1>
+			<h1><a href="path/../index.html" target="_self" style="text-decoration:none;">Hi!! Welcome to Wendy's Home</a>	</h1>
 		</center>
+		
+		
+		<!--Welcome Massage-->
+		<p id="demo" ></p>
+		
 		<!--功能選項-->
-	   <br>Wendy's Home</br>
-	   
-	  <!--center-->
-	   <table   class="tableStyle">
-	　	<tr>
+		<ul  class="tableStyle">
+				<li class="tableLi"><a href="path/../index.html"		class="tableLiA">首頁</a></li>
 			
-　			<td> 
-			<a href="path/../diary.html" target="_blank" class="title" >心情小語</a>
-				</td>
-				
-　			<td>
-			<a href="path/../parent-child.html" target="_blank" class="title">親子好康</a>
-				</td>
-				
-			<td>
-			<a href="path/../travel.html" target="_blank" class="title" id="ss">旅遊情報</a>
-				</td>
-	　	</tr>
-		</table>
-	   <!--/center-->
-	   <br>
+				<li class="tableLi"><a href="path/../diary.html"		class="tableLiA">心情小語</a></li>
+			
+				<li class="tableLi"><a href="path/../parent-child.html"	class="tableLiA">親子好康</a></li>
+			
+				<li class="tableLi"><a href="path/../travel.html"	class="tableLiA">旅遊情報</a></li>
+			
+		</ul>
+		
+	<br>
 	<hr>
 	
 	<h2><strong class="content">部落格介紹</strong></h2>
@@ -120,6 +99,7 @@
 
     </body>
 	
+	<!--
 	<script>
 		$(function () { 
 		$.ajax({
@@ -139,5 +119,19 @@
             });
 	 });
 	</script>
-  
+    -->
+	
+	
+	<script>
+		function enterNameFunction() {
+		var txt;
+		var person = prompt("Please enter your name:", "your name is");
+		if (person == null || person == "") {
+		txt = "Welcome to Wendy's Home";
+		} else {
+		txt = "Hello " + person + "! Welcome to Wendy's Home!!";
+		}
+		document.getElementById("demo").innerHTML = txt;
+		}
+		</script>
 </html>

@@ -5,6 +5,8 @@
     <head >
 
         <meta charset="UTF-8">
+		<meta name="author" content="Wendy Zhang">
+		
 		<title>Wendy's Home</title>
 		<link rel="stylesheet" href="index.css">
 		
@@ -15,95 +17,90 @@
 			var path = window.location.pathname;
 　			//alert('location.pathname: '+location.pathname);　//目前造訪網頁路徑
 		
-		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="http://code.jquery.com/jquery-1.9.1.js">
 		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-		<link rel="stylesheet" href="/resources/demos/style.css" />
+		<link rel="stylesheet" href="path/../css/bootstrap-reboot.min.css />
 		<script>
 		$(function() {
-		$( "#dialog" ).dialog();
-		});
+		$( "#dialog" ).dialog();});
 		</script>
 		
 		
     </head>
 
-   <body  onload="enterNameFunction()" >
+   <body  onload="setHelloMsg()" class="body">
    
 
-	
-
 	<center>
-			<h1><a href="path/../index.html" target="_self" style="text-decoration:none;">Hi!! Welcome to Wendy's Home</a>	</h1>
+			<h1><a href="path/../introduction.html" target="iframe_Info" style="text-decoration:none;">Hi!! Welcome to Wendy's Home</a>	</h1>
 		</center>
 		
-		
 		<!--Welcome Massage-->
-		<p id="demo" ></p>
+		<p id="helloWord" ></p>
+		<p id="ifDemoBlank"><p>
 		
 		<!--功能選項-->
 		<ul  class="tableStyle">
-				<li class="tableLi"><a href="path/../index.html"		class="tableLiA">首頁</a></li>
+				<li class="tableLi" id = "introduction"><a href="path/../introduction.html" target="iframe_Info" class="tableLiA">部落格介紹</a></li>
 			
-				<li class="tableLi"><a href="path/../diary.html"		class="tableLiA">心情小語</a></li>
+				<li class="tableLi" id = "diary"><a href="path/../diary.html" target="iframe_Info" class="tableLiA">心情小語</a></li>
 			
-				<li class="tableLi"><a href="path/../parent-child.html"	class="tableLiA">親子好康</a></li>
+				<li class="tableLi" id = "parent-child"><a href="path/../parent-child.html" target="iframe_Info" class="tableLiA">親子好康</a></li>
 			
-				<li class="tableLi"><a href="path/../travel.html"	class="tableLiA">旅遊情報</a></li>
+				<li class="tableLi" id = "travel"><a href="path/../travel.html"	 target="iframe_Info" class="tableLiA">旅遊情報</a></li>
 			
 		</ul>
 		
 	<br>
-	<hr>
 	
-	<h2><strong class="content">部落格介紹</strong></h2>
-	<ul>
-	<h3><li>心情小語</li></h3>
-	<p> 版媽的心情日記/生活趣事</p>
-	<h3><li>親子好康</li></h3>
-	<p> 推薦親子活動</p>
-	<h3><li>旅遊情報</li></h3>
-	<p> 適合全家大小去的旅遊景點</p>
-	</ul>
+	<iframe name="iframe_Info" src="introduction.html" style="height:600px;width:1800px">
 	
+	
+	
+	</iframe>
 	   <br>
-	   
-	   
-	   <table>
-	   <tr>
-	   <td>text1</td>
-	   <td>text2</td>
-	   </tr>
-	   
-	   <tr>
-	   <td>text3</td>
-	   <td>text4</td>
-	   </tr>
-	   
-	   <tr>
-	   <td>text5</td>
-	   <td>text6</td>
-	   </tr>
-	   
-	   <tr>
-	   <td>text7</td>
-	   <td>text8</td>
-	   </tr>
-	   
-	   <tr>
-	   </tr>
-	   
-	   
-	   
-	   
-	   </table>
 
+	   
+	   
+	   <form> <!-- action="/action_page.php" -->
+			<select name="Taiwan">
+				<option value="choose">請選擇</option>
+				<option value="Taipei">台北市</option>
+				<option value="NewTaipei">新北市</option>
+				<option value="Taoyuan">桃園市</option>
+				<option value="Taichung">台中市</option>
+				<option value="Tainan">台南市</option>
+				<option value="Kaohsiung">高雄市</option>
+				<option value="Keelung">基隆市</option>
+				<option value="Hsinchu">新竹市</option>
+				<option value="Chiayi">嘉義市</option>
+				<option value="GraflandoHsinchu">新竹縣</option>
+				<option value="Miaoli">苗栗縣</option>
+				<option value="Changhua">彰化縣</option>
+				<option value="Nantou">南投縣</option>
+				<option value="Yunlin">雲林縣</option>
+				<option value="Chiayi">嘉義縣</option>
+				<option value="Pingtung">屏東縣</option>
+				<option value="Yilan">宜蘭縣</option>
+				<option value="Hualien">花蓮縣</option>
+				<option value="Taitung">台東縣</option>
+				<option value="Wuhu">澎湖縣</option>
+				
+			</select>
+		</form>
+	   
+	   <p id="time"></p>
+
+		
+	   
     </body>
 	
+	<!--
 	<!--
 	<script>
 		$(function () { 
 		$.ajax({
-                url: "http://www.sabalapeople.nctu.me:38080/SabalaApi/wendyApi/test",   //存取Json的網址             
+                url: "localhost:8080/SabalaApi/wendyApi/test",   //存取Json的網址             
                 type: "GET",
                 cache:false,
                 //dataType: 'json',
@@ -121,17 +118,31 @@
 	</script>
     -->
 	
-	
+	<!--HelloMsg-->
 	<script>
-		function enterNameFunction() {
+		function setHelloMsg() {
 		var txt;
 		var person = prompt("Please enter your name:", "your name is");
+				
 		if (person == null || person == "") {
 		txt = "Welcome to Wendy's Home";
 		} else {
 		txt = "Hello " + person + "! Welcome to Wendy's Home!!";
 		}
-		document.getElementById("demo").innerHTML = txt;
+		document.getElementById("helloWord").innerHTML = txt;
 		}
-		</script>
+	</script>
+		
+	<!--showTime-->
+	<script>
+		document.getElementById("time").innerHTML = Date();
+	</script>	
+	
+	
+		
+		<footer>
+			
+
+		
+		</footer>
 </html>

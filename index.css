@@ -1,6 +1,6 @@
 
 
-	body{
+	.body{
 		background-image:url('path/../pic/index.png');		
 	}
 
@@ -38,6 +38,9 @@
 		color:#BD63FF;
 	}
 	
+	.iframeStyle{
+		 background-color: #FFFFBB;
+	}
 	
 	
 	

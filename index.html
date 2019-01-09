@@ -10,20 +10,14 @@
 		<title>Wendy's Home</title>
 		<link rel="stylesheet" href="index.css">
 		
-		<script src="/WebTest/js/jquery.js"></script>
-		<script src="/WebTest/js/bootstrap.min.js"></script>
+		<script src="./js/jquery.js"></script>
+		<script src="./js/bootstrap.min.js"></script>
 		
-		<script type="text/javascript">
-			var path = window.location.pathname;
-　			//alert('location.pathname: '+location.pathname);　//目前造訪網頁路徑
 		
-		<script src="http://code.jquery.com/jquery-1.9.1.js">
-		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-		<link rel="stylesheet" href="path/../css/bootstrap-reboot.min.css />
-		<script>
-		$(function() {
-		$( "#dialog" ).dialog();});
-		</script>
+<!-- 			var path = window.location.pathname; -->
+<!-- 　			alert('location.pathname: '+location.pathname);　//目前造訪網頁路徑 -->
+		
+
 		
 		
     </head>
@@ -32,7 +26,7 @@
    
 
 	<center>
-			<h1><a href="path/../introduction.html" target="iframe_Info" style="text-decoration:none;">Hi!! Welcome to Wendy's Home</a>	</h1>
+			<h1><a id="cat" href="path/../introduction.html" target="iframe_Info" style="text-decoration:none;">Hi!! Welcome to Wendy's Home</a>	</h1>
 		</center>
 		
 		<!--Welcome Massage-->
@@ -95,28 +89,52 @@
 	   
     </body>
 	
-	<!--
-	<!--
+	
+	<!--api-->
 	<script>
 		$(function () { 
-		$.ajax({
-                url: "localhost:8080/SabalaApi/wendyApi/test",   //存取Json的網址             
+// 		$.ajax({
+//                 url: "http://localhost:18080/SabalaApi/wendyApi/test",   //存取Json的網址             
+//                 type: "GET",
+//                 cache:false,
+//                 //dataType: 'json',
+//                 data:{"456":456},
+//                 //contentType: "application/json",
+//                 success: function (data) {
+//                 	console.log(data);
+// 					$('#cat').html(data.result);
+//                 },
+//                 error: function (xhr, ajaxOptions, thrownError) {
+//                     alert(xhr.status);
+//                     alert(thrownError);
+//                 }
+//             });
+	 });
+		
+		function callApi(person){
+			$.ajax({
+                url: "http://localhost:18080/SabalaApi/wendyApi/test",   //存取Json的網址             
                 type: "GET",
                 cache:false,
                 //dataType: 'json',
-                data:{},
+//                 data:{"456":456},
                 //contentType: "application/json",
-                success: function (data) {
-					alert(data);
+                success: function (json) {
+                	console.log(json);
+//                 	json.data.forEach(function(e){
+//                 		console.log(e);
+//                 	});
+					$('#cat').html(person+json.data);
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
                     alert(xhr.status);
                     alert(thrownError);
                 }
             });
-	 });
+		}
+		
 	</script>
-    -->
+    
 	
 	<!--HelloMsg-->
 	<script>
@@ -125,17 +143,19 @@
 		var person = prompt("Please enter your name:", "your name is");
 				
 		if (person == null || person == "") {
-		txt = "Welcome to Wendy's Home";
+			txt = "Welcome to Wendy's Home";
 		} else {
-		txt = "Hello " + person + "! Welcome to Wendy's Home!!";
+			callApi(person);
+			txt = "Hello " + person + "! Welcome to Wendy's Home!!";
 		}
-		document.getElementById("helloWord").innerHTML = txt;
+			document.getElementById("helloWord").innerHTML = txt;
 		}
 	</script>
 		
 	<!--showTime-->
 	<script>
-		document.getElementById("time").innerHTML = Date();
+		var time= new Date();
+		document.getElementById("time").innerHTML = time.toDateString();
 	</script>	
 	
 	

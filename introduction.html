@@ -13,8 +13,8 @@
 		
     </head>
 
-    <body class="iframeStyle"><!--background="path/../pic/index.png"-->
-		   <fieldset>
+    <body onload="getIntroduction()"  class="iframeStyle"><!--background="path/../pic/index.png"-->
+		   <!-- <fieldset>
 		  <legend><h2><strong class="content">部落格介紹:</strong></h2></legend>
 		  <ul>
 			<h3><li>心情小語</li></h3>
@@ -24,12 +24,39 @@
 			<h3><li>旅遊情報</li></h3>
 			<p> 適合全家大小去的旅遊景點</p>
 			</ul>
+	   </fieldset> -->
+	   <!-- <fieldset id="introduction">
+	   
+	   	callIntroduction();
 	   </fieldset>
+	   -->
 	   
 	   
-
+	   
     </body>
 
-
+	<script>
+	   function getIntroduction(){
+			$.ajax({
+                url: "http://localhost:18080/SabalaApi/wendyApi/getIntroduction",   //存取Json的網址             
+                type: "GET",
+                cache:false,
+                //dataType: 'json',
+//                 data:{"456":456},
+                //contentType: "application/json",
+                success: function (json) {
+                	console.log("success");
+//                 	json.data.forEach(function(e){
+//                 		console.log(e);
+//                 	});
+					$('#introduction').html(person+json.data);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                    alert(thrownError);
+                }
+            });
+		}
+	</script>
 
 </html>

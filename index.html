@@ -49,66 +49,36 @@
 	
 	<iframe name="iframe_Info" src="introduction.html" style="height:600px;width:1800px">
 	
-	
-	
 	</iframe>
 	   <br>
 
-	   
-	   
-	   <form> <!-- action="/action_page.php" -->
-			<select name="Taiwan">
-				<option value="choose">請選擇</option>
-				<option value="Taipei">台北市</option>
-				<option value="NewTaipei">新北市</option>
-				<option value="Taoyuan">桃園市</option>
-				<option value="Taichung">台中市</option>
-				<option value="Tainan">台南市</option>
-				<option value="Kaohsiung">高雄市</option>
-				<option value="Keelung">基隆市</option>
-				<option value="Hsinchu">新竹市</option>
-				<option value="Chiayi">嘉義市</option>
-				<option value="GraflandoHsinchu">新竹縣</option>
-				<option value="Miaoli">苗栗縣</option>
-				<option value="Changhua">彰化縣</option>
-				<option value="Nantou">南投縣</option>
-				<option value="Yunlin">雲林縣</option>
-				<option value="Chiayi">嘉義縣</option>
-				<option value="Pingtung">屏東縣</option>
-				<option value="Yilan">宜蘭縣</option>
-				<option value="Hualien">花蓮縣</option>
-				<option value="Taitung">台東縣</option>
-				<option value="Wuhu">澎湖縣</option>
-				
-			</select>
-		</form>
-	   
-	   <p id="time"></p>
-
-		
-	   
     </body>
 	
 	
 	<!--api-->
 	<script>
-		$(function () { 
-// 		$.ajax({
-//                 url: "http://localhost:18080/SabalaApi/wendyApi/test",   //存取Json的網址             
-//                 type: "GET",
-//                 cache:false,
-//                 //dataType: 'json',
-//                 data:{"456":456},
-//                 //contentType: "application/json",
-//                 success: function (data) {
-//                 	console.log(data);
-// 					$('#cat').html(data.result);
-//                 },
-//                 error: function (xhr, ajaxOptions, thrownError) {
-//                     alert(xhr.status);
-//                     alert(thrownError);
-//                 }
-//             });
+	$(function () { 
+		$.ajax({
+                url: "http://localhost:18080/SabalaApi/wendyApi/getEmotion",   //存取Json的網址             
+                type: "POST",
+                cache:false,
+                //dataType: 'json',
+                //data:{"456":456},
+                //contentType: "application/json",
+                success: function (data) {
+                	console.log("json:");
+                	console.log(data);
+                	var content = "";
+                	data.data.forEach(function(e){
+                		content += e.emotionContent;
+                	});
+					$('#content').html(content);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                    alert(thrownError);
+                }
+            });
 	 });
 		
 		function callApi(person){
